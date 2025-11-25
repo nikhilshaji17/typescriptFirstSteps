@@ -1,0 +1,20 @@
+JS types are: 
+  1. Dynamic (Types are decided as code is running) 
+  2. Weak (Types are often coerced so JS can work with it)
+
+Examples:
+let elevenString = '1' + 1; // '11'
+let zero = '1' - 1; // 0
+let emptyString = [] + []; // ''
+let objectObject = [] + {}; // '[object Object]'
+
+Typescript is a superset of JS. It has more features.
+This means that all JS code can be converted to TS, but TS code cannot be converted to JS.
+
+Types is TS are static and strong.
+
+Typescript code compiles to JS. JS code is interpreted. So both interpreted and compiled is happening.
+
+TS can be useful as a Dev tool, by providing autocompletion, hints etc.
+TS can also generate JS code for various targets/platforms.
+
