@@ -18,3 +18,66 @@ Typescript code compiles to JS. JS code is interpreted. So both interpreted and 
 TS can be useful as a Dev tool, by providing autocompletion, hints etc.
 TS can also generate JS code for various targets/platforms.
 
+The type of a variable in TS is decided during variable initialization. After this initial type, it cannot change.
+
+
+Type annotations:
+let n: number = 55;
+console.log(n);
+
+let x: string;
+x = "hello";
+console.log(x);
+
+We use variableName colon(:) typeName(string, number etc) to annotate a variable.
+
+let n: number = 1;
+let s: string = 'hi';
+let b: boolean = true;
+let missing: undefined = undefined;
+let nothing: null = null;
+
+We can also have literal types in TS:
+
+let option: 'alive' | 'dead'
+option = 'alive' // OK
+option = 'dead' // OK
+option = 'chilling' // Not allowed
+
+let option: 'alive' | 'dead' | 1024
+option = 'alive' // OK
+option = 'dead' // OK
+option = 1024 // OK
+option = 'chilling' // Not allowed
+option = 1025 // Not allowed
+i.e, types are looser, but they have to be one of the specified values
+
+Typed functions:
+
+function add(a: number, b: number): number {
+    return (a + b);
+}
+
+add(140, 60); // 200
+add('oh', 'no'); // Error!
+
+const x = (a: number, b: number): number => {
+  return (a + b);
+}
+
+Typed Arrays:
+let digits: number[] = [1,2,3];
+digits.push(1); // OK
+digits.push("Hello"); // NOT OK
+
+let example: any[] = [1, "hello", "bye"] // OK
+
+Typed Objects:
+
+let user: {name: string, age: number}
+user = {name: "Nik", age: 25}
+
+user.name = "NNIIK" // OK
+user.age = 24 // OK
+
+user.name = 1; // NOT OK
