@@ -81,3 +81,30 @@ user.name = "NNIIK" // OK
 user.age = 24 // OK
 
 user.name = 1; // NOT OK
+
+We can also have optional properties:
+
+let user = {name:string, age:number, color?:string}; // This means the color property can be a string or undefined.
+
+user = {name: "Nikhil", age: 25}; // OK
+
+let user: {name: string, age: number} // if we do not explicitly declare types like this, TS 
+  // will implicitly place types on them. The reason for this type of declaration is to include optional types.
+
+Union Types:
+let option: 'alive' | 'dead' | 1024 // option can be one of these options.
+
+let option: string | null // option can be a string or null.
+
+Suppose we wanted to create a variable that can store a number, or an array of numbers:
+
+let numberOrArray: number | number[]
+numberOrArray = 9;
+numberOrArray = [9];
+numberOrArray.push(10);
+console.log(numberOrArray); // This is valid
+
+Suppose you wanted a combination array, of numbers and strings, but nothing else. We cannot use any[] here:
+
+let numsOrStrings: (number | string)[]
+numsOrStrings = [10, "Twenty", "30"] // Valid
