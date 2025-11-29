@@ -108,3 +108,48 @@ Suppose you wanted a combination array, of numbers and strings, but nothing else
 
 let numsOrStrings: (number | string)[]
 numsOrStrings = [10, "Twenty", "30"] // Valid
+
+
+Type guards:
+Example of writing safe code:
+  let elemOrNull: HTMLElement | null;
+  elemOrNull = document.getElementById('might-exist');
+  elemOrNull.addEventListener('click', () => {
+      console.log("will this work?");
+  }); // Error!
+
+  if (elemOrNull === null) {
+      console.log("not found");
+  } else {
+      elemOrNull.addEventListener('click', () => {
+          console.log("found");
+      })
+}
+
+Typescript will give us an error if we do not add an if..else check.
+
+Type aliases:
+
+Instead of always having to write:
+
+let strExample: string | number | null;
+
+We can write:
+type Example = string | number | null;
+let strExample = Example;
+
+type StringOrNumber = string | number;
+
+type LogLevel = 'log' | 'error' | 'warn'; // For literal strings
+
+type User = {
+    id: string,
+    name: string,
+    color?: string
+}
+let newUser: User;
+newUser = {id: "123", name: "Nikhil"};
+console.log(newUser);
+
+Type aliases allow us to create a "variable for our types"
+
