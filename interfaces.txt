@@ -33,3 +33,14 @@ interface Agent extends User {
 
 It is generally recommended to use an interface for objects, as they are faster and more flexible.
 
+We can also write Asynchronous code which returns promises, with TS.
+
+Type Parameters:
+const promisedNum: Promise<number> = Promise.resolve(5);
+const promisedStr: Promise<string> = Promise.resolve('5');
+const brokenPromise: Promise<number> = Promise.resolve(null); // Error!
+
+The type in between the angle brackets is the type parameter.
+TS knows what to expect, and alerts us if a different type can potentially be returned.
+
+Generic Types:
