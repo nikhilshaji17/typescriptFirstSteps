@@ -153,3 +153,5 @@ console.log(newUser);
 
 Type aliases allow us to create a "variable for our types"
 
+Use type aliases as often as possible. Changing them in one place will take care of your
+  whole code base.

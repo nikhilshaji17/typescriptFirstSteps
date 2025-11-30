@@ -1,0 +1,38 @@
+NOTE: 
+  --noEmit flag => no .js file is produced
+  --strict flag => This enables all the possible type checking functionality of TS.
+  --checkJS flag => Checks our regular .js files as well for types.
+
+tsx allows fast execution, but it does not do strict type checking as done with tsc.
+tsc is slower, because it performs this type checking.
+
+We can specify compiler settings by tweaking tsconfigs.json
+
+When we use tsc to convert a .TS file to a .JS file, it strips away all the type conversions
+  that we performed.
+
+  --target flag => allows you to decide what .js syntax you want to output your .ts files in.
+
+tsc --target es2020 fileName.ts
+Running the line above to generate your JS files will give you JS files with very different syntaxes.
+
+This is because it generates the JS with code that is suitable for the relevant browsers, based on 
+  the flags you pass it.
+Example: 
+  tsc --target es5 fileName.ts // older browsers
+  tsc --target es6 fileName.ts // newer browsers
+  tsc --target esnext fileName.ts // newest hottest browsers
+
+--removeComments flag => Removes comments
+
+We can specify our flags in tsconfig.json. This allows us to run tsc in the CLI, without all the extra
+  flags. We can just run tsc directly.
+
+The section named other outputs allows you to turn on or off the files that get 
+  output by tsc.
+
+.d.ts => declaration files, used by Intellisense
+.d.ts.map => declaration map, allows us to map back from the output .JS to the input .TS
+.js.ap => used for debugging
+
+These are related to the Tooling side of TS.

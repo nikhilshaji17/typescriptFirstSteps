@@ -1,0 +1,35 @@
+They give us the ability to describe object types.
+
+Let's try to create a type called User, which:
+  1. If it is a human user, will have a full name property.
+  2. If it is a AI agent, will have a model name property.
+
+If we describe them using regular object types:
+
+type User = {
+  name: string,
+  id: string | number,
+  fullName?: string,
+  modelName?: string
+};
+
+let humanUser: User = {name: "Nik", id: "123", fullName: "Nik Nik Nik"};
+let AiAgent: User = {name: "NikModel", id: "123", modelName: "Nik.1.2.3"};
+
+The use of optional properties everywhere is not the best coding practice, so we use interfaces.
+
+interface User = {
+  name: string; // semi-colon instead of commas
+  id: string | number;
+}
+
+interface Human extends User {
+  fullName: string;
+}
+
+interface Agent extends User {
+  modelName: string;
+}
+
+It is generally recommended to use an interface for objects, as they are faster and more flexible.
+
