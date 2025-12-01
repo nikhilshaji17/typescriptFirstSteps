@@ -1,8 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createEvent = createEvent;
+exports.createUser = createUser;
 ;
-const EVENTS = [];
-const USERS = [];
+var EVENTS = [];
+var USERS = [];
 function createNextId(data) {
-    const lastItem = data[data.length - 1];
+    var lastItem = data[data.length - 1];
     if (!lastItem) {
         return 1;
     }
@@ -11,10 +15,10 @@ function createNextId(data) {
     }
 }
 function createUser(username, name, email) {
-    const user = {
+    var user = {
         id: createNextId(USERS),
-        username,
-        name,
+        username: username,
+        name: name,
     };
     if (email) {
         user.email = email;
@@ -25,13 +29,13 @@ function createUser(username, name, email) {
 }
 // declare the missing EventDetailsWithoutIds type!
 function createEvent(host, eventDetails) {
-    const { date, title, image_url, description } = eventDetails;
-    const eventDate = new Date(date);
-    const event = {
+    var date = eventDetails.date, title = eventDetails.title, image_url = eventDetails.image_url, description = eventDetails.description;
+    var eventDate = new Date(date);
+    var event = {
         id: createNextId(EVENTS),
         host_id: host.id,
         date: eventDate,
-        title,
+        title: title,
     };
     if (image_url) {
         event.image_url = image_url;
@@ -44,4 +48,3 @@ function createEvent(host, eventDetails) {
     EVENTS.push(event);
     return event;
 }
-export { createEvent, createUser };

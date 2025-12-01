@@ -44,3 +44,38 @@ The type in between the angle brackets is the type parameter.
 TS knows what to expect, and alerts us if a different type can potentially be returned.
 
 Generic Types:
+Assume you do not want to create so many type params like the example above. We
+  can use a generic type instead:
+
+type Nullable<T> = T | null; // This means the Nullable generic is of type "T" or type "null"
+
+let nullishNum: Nullable<number> = 5;
+nullishNum = 4; // OK
+nullishNum = null; // OK
+
+let stringishNull: Nullable<string> = "hello";
+
+let objOrNot: Nullable< {property: string} >;
+objOrNot = {property: "hello"}; // OK
+objOrNot = null; // OK
+objOrNot = undefined; // NOT OK
+
+type User = {
+  name: string;
+  email: string;
+  id: number;
+}
+
+TS also provides us with in built Generics.
+Examples: 
+  1. Readonly<User>: Essentially adds the readonly keyword before the variable. We will not be able to modify the initial values.
+  2. Partial<User>: Essentially adds the ? symbol after the variable. Now all the options are not required.
+  3. Pick<User, 'id'>: Makes a more specific subset of the type (in this case, an object with just the id field).
+  4. Omit<User, 'email'>: Similar to above, opposite function (the object formed will exclude email).
+
+any and @ts-ignore:
+any is a type that allows you to store any type in your variable.
+
+// @ts-ignore 
+The above is a comment directive that tells the TSC compiler to ignore till the directive ends.
+

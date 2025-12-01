@@ -1,16 +1,27 @@
+type Id = number;
+
 interface HasId {
     id: Id; // declare this type!
 }
 
 interface User extends HasId {
     // complete me!
+    username: string;
+    name: string;
+    email?: string;
 };
 
 
 interface Event extends HasId {
     // complete me!
+    date: Date;
+    host_id: Id;
+    title: string;
+    image_url?: string;
+    description?: string;
 }
 
+type EventDetailsWithoutIds = Omit<Event, 'id' | 'host_id'>;
 
 const EVENTS: Event[] = [];
 const USERS: User[] = [];

@@ -2,6 +2,7 @@ NOTE:
   --noEmit flag => no .js file is produced
   --strict flag => This enables all the possible type checking functionality of TS.
   --checkJS flag => Checks our regular .js files as well for types.
+  --watch flag => Looks regularly for changes to our file, kinda like hot reloads.
 
 tsx allows fast execution, but it does not do strict type checking as done with tsc.
 tsc is slower, because it performs this type checking.
@@ -36,3 +37,6 @@ The section named other outputs allows you to turn on or off the files that get
 .js.ap => used for debugging
 
 These are related to the Tooling side of TS.
+
+Usually in our package.json, we can expect to see the following line in our scripts:
+  "test": "tsc --noEmit && vitest"
