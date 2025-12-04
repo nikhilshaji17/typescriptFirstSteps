@@ -155,3 +155,18 @@ Type aliases allow us to create a "variable for our types"
 
 Use type aliases as often as possible. Changing them in one place will take care of your
   whole code base.
+
+We can use tsconfig bases to use a pre-built tsconfig file.
+
+Example:
+  npm i -D @tsconfig/recommended
+
+Type Assertions:
+
+We perform type assertions using the 'as' keyword.
+
+This tells TS that we guarantee an element is going to exist, and not be null.
+
+const maybeAnyElement = document.getElementById('my-button');
+const iSwearThisButtonExists = maybeAnyElement as HTMLButtonElement;
+
